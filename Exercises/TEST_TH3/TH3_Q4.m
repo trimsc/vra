@@ -11,15 +11,19 @@ function TH3_Q4()
     end
     
     %write data
-    csv = cell(11, 2);
+    csv = cell(12, 2);
     csv{1,1} = 'Label';
     csv{1,2} = 'Count';
     i = 0;
+    sum = 0;
     while i < 10
         csv{i + 2,1} = i;
         csv{i + 2,2} = counts(i + 1);
+        sum = sum + counts(i + 1);
         i = i + 1;
     end
+    csv{i + 2,1} = 'Sum';
+    csv{i + 2,2} = sum;
     disp(csv);
     
     cell2csv('TH3_Q4.csv', csv);
